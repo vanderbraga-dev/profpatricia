@@ -1,0 +1,395 @@
+/* Paleta de cores */
+:root {
+    --primary-color: hsl(207, 88%, 17%); /* Azul principal */
+    --secondary-color: #d34848; /* Cinza claro */
+    --accent-color: #003f66; /* Azul escuro */
+    --gradient-start: #ffde26; /* Início do degradê */
+    --gradient-end: #e7fd69; /* Fim do degradê */
+    --text-color: #333; /* Cor do texto */
+}
+
+body {
+    background-image: url("/static/imagens/fundo1.avif"); /* Caminho direto para o plano de fundo */
+    background-size: cover; /* Faz a imagem ocupar o fundo inteiro */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+    color: var(--text-color);
+}
+
+
+
+/* Estilo do Cabeçalho */
+header {
+    background: linear-gradient(to right, var(--gradient-start, #005f99), var(--gradient-end, #003f66)); /* Degradê horizontal */
+    color: rgb(255, 255, 255);
+    padding: 10px 0; /* Ajusta a altura da barra */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sutil sombra para destacar */
+}
+
+/* Estilo da Lista de Navegação */
+.menu {
+    list-style: none;
+    display: flex; /* Mantém os links um ao lado do outro */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+.menu li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem; /* Ligeiramente maior */
+    transition: color 0.3s ease; /* Animação ao passar o mouse */
+}
+
+.menu li a:hover {
+    color: #dfff28; /* Realça a opção com uma cor mais clara */
+}
+
+/* Home Section */
+.home-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 20px;
+}
+
+/* Container único para foto e biografia */
+.profile-container {
+    display: flex;
+    flex-direction: row; /* Alinha imagem e biografia lado a lado */
+    align-items: stretch; /* Garante que ambos tenham a mesma altura */
+    justify-content: center;
+    width: 21cm; /* Largura fixa em centímetros */
+    height: 16cm; /* Altura fixa em centímetros */
+    background-color: rgba(253, 255, 126, 0.8); /* Fundo branco com opacidade */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    margin: auto; /* Centraliza na página */
+    overflow: hidden; /* Garante que nada exceda os limites */
+}
+
+.profile-container img {
+    width: auto; /* Ajusta proporcionalmente à altura */
+    height: 100%; /* A altura continua preenchendo o contêiner */
+    max-height: 100%; /* Evita que a imagem cresça demais */
+    object-fit: cover; /* Mantém as proporções sem distorção */
+    border-radius: 10px 0 0 10px; /* Bordas arredondadas apenas no lado esquerdo */
+}
+
+.profile-container .bio {
+    width: 50%; /* Metade da largura do contêiner */
+    padding: 20px; /* Espaçamento interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem; /* Tamanho da fonte */
+}
+
+/* Seção Projetos */
+.projetos-section {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Estilo geral do carrossel */
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Permite a rolagem horizontal */
+    scroll-snap-type: x mandatory; /* Habilita o snap */
+    gap: 15px; /* Espaçamento entre os itens */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.carousel-item {
+    flex: none;
+    width: 200px; /* Tamanho inicial da imagem */
+    height: 150px; /* Tamanho inicial da imagem */
+    border-radius: 5px;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Animação suave */
+    scroll-snap-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem proporcionalmente */
+    border-radius: 5px;
+}
+
+/* Estilo para sobreposição */
+.overlay {
+    display: none; /* Começa oculta */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 13cm;
+    height: 16cm;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo transparente escuro */
+    z-index: 1000; /* Garante que fique na frente de outros elementos */
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Adiciona sombra ao modal */
+}
+
+.overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém as proporções */
+    border-radius: 10px;
+}
+
+/*------------------------- Contato Section-------------------------------------- */
+
+/* Seção de contato */
+.contato-section {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.form-container,
+.messages-container {
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-container form input,
+.form-container form textarea {
+    width: 96%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+}
+
+/* Remove a capacidade de redimensionar a textarea */
+.form-container form textarea {
+    resize: none; /* Desabilita redimensionamento */
+    overflow: auto; /* Garante a rolagem se o texto for maior que o campo */
+}
+
+.form-container form button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column; /* Alinha verticalmente em telas menores */
+        align-items: center;
+    }
+
+    .home-section {
+        flex-direction: column; /* Alinha verticalmente */
+        text-align: center;
+    }
+
+    .profile-container {
+        width: 90%; /* Ajusta largura para telas menores */
+        height: auto; /* Ajusta altura automaticamente */
+        flex-direction: column; /* Organiza imagem e biografia verticalmente */
+    }
+
+    .profile-container img {
+        width: 100%;
+        height: auto; /* Ajusta a altura automaticamente */
+        border-radius: 10px 10px 0 0;
+    }
+
+    .profile-container .bio {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .carousel-item {
+        width: 150px;
+        height: 100px; /* Ajusta para telas menores */
+    }
+
+    .form-container,
+    .messages-container {
+        width: 90%; /* Alinha os blocos em telas pequenas */
+    }
+
+    .overlay {
+        width: 90%; /* Ajusta para telas menores */
+        height: auto;
+    }
+}
+
+
+/* Seção de Informações de Contato */
+.contact-info {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(240, 240, 240, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+
+
+/*------------------------página publicaçoes--------------------------*/
+
+
+/* Estilo para o container de publicações */
+.publicacoes-section {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    justify-content: flex-start; /* Posiciona no topo verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    margin: 0 auto; /* Centraliza na tela horizontalmente */
+    padding: 20px; /* Espaçamento interno do container */
+    max-width: 800px; /* Define a largura fixa lateral */
+    background-color: rgba(240, 240, 240, 0.9); /* Fundo claro para destacar */
+    border-radius: 10px; /* Bordas arredondadas para estilo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra para destaque */
+}
+
+/* Estilo para cada item da lista de publicações */
+.publicacoes-section ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding: 0;
+    width: 100%; /* Garante que os itens ocupem a largura completa */
+}
+
+.publicacoes-section li {
+    text-align: center; /* Centraliza o texto no meio */
+    margin-bottom: 20px; /* Espaço entre os itens */
+}
+
+/* Container para os vídeos e informações */
+.video-container {
+    display: flex;
+    flex-direction: column; /* Garante que o texto fique acima do vídeo */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    text-align: center; /* Centraliza o texto acima do vídeo */
+    margin-bottom: 30px; /* Espaço entre as publicações */
+}
+
+.video-container strong {
+    margin-bottom: 10px; /* Espaço entre o texto e o vídeo */
+    font-size: 1.2rem; /* Aumenta levemente o tamanho do texto */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para os iframes */
+.publicacoes-section iframe {
+    margin-top: 10px; /* Espaço entre o texto e o vídeo */
+    border-radius: 5px; /* Bordas arredondadas para o vídeo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ao redor do vídeo */
+}
+
+
+/*------------------------------ensino-------------------------------------*/
+
+
+/* Estilo para o container de ensino */
+.ensino-section {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    justify-content: flex-start; /* Alinha os itens no topo verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    max-width: 800px; /* Define uma largura fixa */
+    background-color: rgba(240, 240, 240, 0.9); /* Fundo claro para o container */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para a lista de disciplinas */
+.ensino-section ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+    width: 100%; /* Garante que os itens ocupem toda a largura do container */
+}
+
+.ensino-section li {
+    text-align: center; /* Centraliza o conteúdo de cada item */
+    margin-bottom: 20px; /* Espaço entre os itens */
+    padding: 10px; /* Espaçamento interno */
+    background-color: white; /* Fundo branco para cada item */
+    border-radius: 5px; /* Bordas arredondadas para cada item */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Estilo para o texto e os links */
+.ensino-section li strong {
+    font-size: 1.2rem; /* Aumenta o tamanho do texto dos cursos */
+    color: #333; /* Cor do texto */
+    display: block; /* Garante que o título do curso fique em uma linha separada */
+}
+
+.ensino-section li p {
+    font-size: 1rem; /* Tamanho padrão para a descrição */
+    margin: 10px 0; /* Espaçamento acima e abaixo do texto */
+    color: #666; /* Cor do texto */
+}
+
+.ensino-section li a {
+    font-size: 1rem; /* Tamanho do texto do link */
+    color: var(--accent-color); /* Usa a cor de destaque definida na paleta */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-weight: bold; /* Deixa o link mais destacado */
+    transition: color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.ensino-section li a:hover {
+    color: var(--primary-color); /* Altera a cor ao passar o mouse */
+}
+

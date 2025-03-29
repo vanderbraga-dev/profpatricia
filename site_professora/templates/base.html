@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professora Patrícia Marciano de Oliveira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Professora Patrícia Marciano de Oliveira</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'home' %}">Início</a></li>
+                <li><a href="{% url 'publicacoes' %}">Publicações</a></li>
+                <li><a href="{% url 'ensino' %}">Ensino</a></li>
+                <li><a href="{% url 'contato' %}">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>© Patrícia Marciano de Oliveira</p>
+        <div>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-researchgate"></i></a>
+        </div>
+    </footer>
+
+    <!-- Adicionando o JavaScript externo -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

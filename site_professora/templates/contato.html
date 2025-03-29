@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="contato-section">
+        <div class="form-container">
+            <h2>Deixe sua Mensagem</h2>
+            <form method="post" action="#">
+                {% csrf_token %}
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="messages-container">
+            <h3>Mensagens Recebidas</h3>
+            <ul id="message-list">
+                {% for mensagem in mensagens %}
+                    <li>
+                        <p><strong>{{ mensagem.nome }}:</strong> {{ mensagem.mensagem }}</p>
+                        <small>Enviado em: {{ mensagem.criado_em|date:"d/m/Y H:i" }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Informações de Contato agora abaixo -->
+    <section class="contact-info">
+        <h4>Informações de Contato</h4>
+        <p>Email: <a href="mailto:patisuam@yahoo.com.br">patisuam@yahoo.com.br</a></p>
+        <p>Instagram: 
+            <a href="https://www.instagram.com/oliveira.marciano.47/profilecard/?igsh=cmtvNjVmNnh1NGN6" target="_blank">
+                <img src="{% static 'imagens/insta.jpg' %}" alt="Instagram" width="30" height="30">
+            </a>
+        </p>
+    </section>
+{% endblock %}
